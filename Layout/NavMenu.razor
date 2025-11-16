@@ -1,29 +1,26 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">BibleApp</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-    </nav>
-</div>
+﻿<MudAppBar Elevation="2" Style="background: linear-gradient(135deg, #D4B5A0 0%, #C9A88E 100%); color: #5D4E37;">
+    <MudIconButton Icon="@Icons.Material.Filled.MenuBook"
+                   Color="Color.Inherit"
+                   Edge="Edge.Start"
+                   Style="margin-right: 16px;" />
+    <MudText Typo="Typo.h5" Style="font-weight: 600; letter-spacing: 0.5px;">
+        Bible
+    </MudText>
+    <MudSpacer />
+    <MudButton Href="/"
+               Variant="Variant.Text"
+               StartIcon="@Icons.Material.Filled.Home"
+               Style="color: #5D4E37; text-transform: none; font-weight: 500;">
+        Home
+    </MudButton>
+    <MudButton Href="/bible-reader"
+               Variant="Variant.Text"
+               StartIcon="@Icons.Material.Filled.Book"
+               Style="color: #5D4E37; text-transform: none; font-weight: 500;">
+        Bible Reader
+    </MudButton>    
+</MudAppBar>
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    // MudBlazor AppBar handles responsive behavior automatically
 }

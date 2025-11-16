@@ -1,0 +1,138 @@
+@page "/bible-reader"
+
+<PageTitle>Bible Reader</PageTitle>
+
+<MudPaper Elevation="0" Class="pa-6" Style="background: linear-gradient(135deg, #F5EDE4 0%, #EFE5DB 100%); min-height: 90vh;">
+    <MudText Typo="Typo.h3" Align="Align.Center" Style="color: #5D4E37; font-weight: 600; margin-bottom: 32px;">
+        Bible Reader
+    </MudText>
+
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" md="10" lg="8">
+            <MudPaper Elevation="3" Class="pa-6" Style="background: #FFFFFF; border-radius: 12px;">
+                <MudGrid Spacing="3">
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="string"
+                                   Label="Book"
+                                   Variant="Variant.Outlined"
+                                   @bind-Value="selectedBook"
+                                   Style="background: #FFFFFF;"
+                                   AdornmentIcon="@Icons.Material.Filled.Book"
+                                   AdornmentColor="Color.Primary">
+                            @foreach (var book in books)
+                            {
+                                <MudSelectItem Value="@book">@book</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="int"
+                                   Label="Chapter"
+                                   Variant="Variant.Outlined"
+                                   @bind-Value="selectedChapter"
+                                   Style="background: #FFFFFF;"
+                                   AdornmentIcon="@Icons.Material.Filled.MenuBook"
+                                   AdornmentColor="Color.Primary"
+                                   Disabled="@(string.IsNullOrEmpty(selectedBook))">
+                            @for (int i = 1; i <= maxChapters; i++)
+                            {
+                                <MudSelectItem Value="@i">Chapter @i</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                </MudGrid>
+
+                <MudDivider Class="my-6" Style="background: #D4B5A0;" />
+
+                @if (!string.IsNullOrEmpty(selectedBook) && selectedChapter > 0)
+                {
+                    <MudPaper Elevation="0" Class="pa-4" Style="background: #FAF7F4; border-radius: 8px; border-left: 4px solid #C9A88E;">
+                        <MudText Typo="Typo.h5" Style="color: #5D4E37; font-weight: 600; margin-bottom: 24px;">
+                            @selectedBook - Chapter @selectedChapter
+                        </MudText>
+
+                        <MudText Typo="Typo.body1" Style="color: #3E3529; line-height: 1.8; font-size: 1.1rem;">
+                            @bibleText
+                        </MudText>
+                    </MudPaper>
+                }
+                else
+                {
+                    <MudPaper Elevation="0" Class="pa-8" Style="background: #FAF7F4; border-radius: 8px;">
+                        <MudText Typo="Typo.h6" Align="Align.Center" Style="color: #8B7355; font-style: italic;">
+                            Select a book and chapter to begin reading
+                        </MudText>
+                    </MudPaper>
+                }
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+
+@code {
+    private string selectedBook = string.Empty;
+    private int selectedChapter = 0;
+    private int maxChapters = 50; // Default, will be updated based on book selection
+    private string bibleText = string.Empty;
+
+    // Sample list of Bible books - Old Testament
+    private List<string> books = new()
+    {
+        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+        "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+        "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+        "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+        "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations",
+        "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+        "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+        "Zephaniah", "Haggai", "Zechariah", "Malachi",
+        // New Testament
+        "Matthew", "Mark", "Luke", "John", "Acts",
+        "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+        "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
+        "1 Timothy", "2 Timothy", "Titus", "Philemon",
+        "Hebrews", "James", "1 Peter", "2 Peter",
+        "1 John", "2 John", "3 John", "Jude", "Revelation"
+    };
+
+    protected override void OnInitialized()
+    {
+        // Placeholder text for now - will be replaced with API call later
+        bibleText = "The Bible text will be loaded from the API when a book and chapter are selected.";
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Update max chapters based on selected book (simplified for now)
+        // This will eventually come from the API
+        if (!string.IsNullOrEmpty(selectedBook))
+        {
+            maxChapters = selectedBook switch
+            {
+                "Genesis" => 50,
+                "Exodus" => 40,
+                "Psalms" => 150,
+                "Matthew" => 28,
+                "Mark" => 16,
+                "Luke" => 24,
+                "John" => 21,
+                "Revelation" => 22,
+                _ => 50 // Default
+            };
+
+            // When book/chapter changes, this is where you'll call the API
+            if (selectedChapter > 0)
+            {
+                LoadBibleText();
+            }
+        }
+    }
+
+    private void LoadBibleText()
+    {
+        // Placeholder - will be replaced with actual API call
+        bibleText = $"[API Call] Loading {selectedBook} Chapter {selectedChapter}...\n\n" +
+                    "This is where the Bible text will appear once the API is integrated. " +
+                    "The text will be formatted nicely with proper verse numbers and spacing.";
+    }
+}
