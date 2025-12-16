@@ -80,4 +80,10 @@
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+
+    .app-bar{
+        border-radius: 24px; 
+        margin: 20px;
+        padding: 20px;
+    }
 }

@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "KJV",
+    "translationName": "King James Version",
+    "yearPublished": "1769"
+  },
+  {
+    "_id": "DR",
+    "translationName": "Douay-Rheims",
+    "yearPublished": "1899"
+  },
+  {
+    "_id": "WEB",
+    "translationName": "World English Bible",
+    "yearPublished": "2020"
+  },
+  {
+    "_id": "RV",
+    "translationName": "Revised Version",
+    "yearPublished": "1895"
+  },
+  {
+    "_id": "ASV",
+    "translationName": "American Standard Version",
+    "yearPublished": "1901"
+  },
+  {
+    "_id": "LXX",
+    "translationName": "Septuagint in American English",
+    "yearPublished": "2012"
+  },
+  {
+    "_id": "YLT",
+    "translationName": "Young's Literal Translation",
+    "yearPublished": "1862"
+  },
+  {
+    "_id": "JPS",
+    "translationName": "JPS Tanakh",
+    "yearPublished": "1917"
+  },
+  {
+    "_id": "GEN",
+    "translationName": "Geneva Bible",
+    "yearPublished": "1599"
+  },
+  {
+    "_id": "DAR",
+    "translationName": "Darby",
+    "yearPublished": "1890"
+  },
+  {
+    "_id": "WYC",
+    "translationName": "Wycliffe",
+    "yearPublished": "1395"
+  },
+  {
+    "_id": "TYN",
+    "translationName": "Tyndale NT",
+    "yearPublished": "1534"
+  },
+  {
+    "_id": "LJB",
+    "translationName": "Leeser's Jewish Bible",
+    "yearPublished": "1853"
+  }
+]

@@ -1,0 +1,512 @@
+[
+  {
+    "_id": "GEN",
+    "bookName": "Genesis",
+    "bookOrder": 1,
+    "chapterCount": 50
+  },
+  {
+    "_id": "EXO",
+    "bookName": "Exodus",
+    "bookOrder": 2,
+    "chapterCount": 40
+  },
+  {
+    "_id": "LEV",
+    "bookName": "Leviticus",
+    "bookOrder": 3,
+    "chapterCount": 27
+  },
+  {
+    "_id": "NUM",
+    "bookName": "Numbers",
+    "bookOrder": 4,
+    "chapterCount": 36
+  },
+  {
+    "_id": "DEU",
+    "bookName": "Deuteronomy",
+    "bookOrder": 5,
+    "chapterCount": 34
+  },
+  {
+    "_id": "JOS",
+    "bookName": "Joshua",
+    "bookOrder": 6,
+    "chapterCount": 24
+  },
+  {
+    "_id": "JDG",
+    "bookName": "Judges",
+    "bookOrder": 7,
+    "chapterCount": 21
+  },
+  {
+    "_id": "RUT",
+    "bookName": "Ruth",
+    "bookOrder": 8,
+    "chapterCount": 4
+  },
+  {
+    "_id": "1SA",
+    "bookName": "1 Samuel",
+    "bookOrder": 9,
+    "chapterCount": 31
+  },
+  {
+    "_id": "2SA",
+    "bookName": "2 Samuel",
+    "bookOrder": 10,
+    "chapterCount": 24
+  },
+  {
+    "_id": "1KI",
+    "bookName": "1 Kings",
+    "bookOrder": 11,
+    "chapterCount": 22
+  },
+  {
+    "_id": "2KI",
+    "bookName": "2 Kings",
+    "bookOrder": 12,
+    "chapterCount": 25
+  },
+  {
+    "_id": "1CH",
+    "bookName": "1 Chronicles",
+    "bookOrder": 13,
+    "chapterCount": 29
+  },
+  {
+    "_id": "2CH",
+    "bookName": "2 Chronicles",
+    "bookOrder": 14,
+    "chapterCount": 36
+  },
+  {
+    "_id": "EZR",
+    "bookName": "Ezra",
+    "bookOrder": 15,
+    "chapterCount": 23
+  },
+  {
+    "_id": "NEH",
+    "bookName": "Nehemiah",
+    "bookOrder": 16,
+    "chapterCount": 13
+  },
+  {
+    "_id": "EST",
+    "bookName": "Esther",
+    "bookOrder": 17,
+    "chapterCount": 16
+  },
+  {
+    "_id": "JOB",
+    "bookName": "Job",
+    "bookOrder": 18,
+    "chapterCount": 42
+  },
+  {
+    "_id": "PSA",
+    "bookName": "Psalms",
+    "bookOrder": 19,
+    "chapterCount": 151
+  },
+  {
+    "_id": "PRO",
+    "bookName": "Proverbs",
+    "bookOrder": 20,
+    "chapterCount": 31
+  },
+  {
+    "_id": "ECC",
+    "bookName": "Ecclesiastes",
+    "bookOrder": 21,
+    "chapterCount": 12
+  },
+  {
+    "_id": "SNG",
+    "bookName": "Song of Solomon",
+    "bookOrder": 22,
+    "chapterCount": 8
+  },
+  {
+    "_id": "ISA",
+    "bookName": "Isaiah",
+    "bookOrder": 23,
+    "chapterCount": 66
+  },
+  {
+    "_id": "JER",
+    "bookName": "Jeremiah",
+    "bookOrder": 24,
+    "chapterCount": 52
+  },
+  {
+    "_id": "LAM",
+    "bookName": "Lamentations",
+    "bookOrder": 25,
+    "chapterCount": 5
+  },
+  {
+    "_id": "EZK",
+    "bookName": "Ezekiel",
+    "bookOrder": 26,
+    "chapterCount": 48
+  },
+  {
+    "_id": "DAN",
+    "bookName": "Daniel",
+    "bookOrder": 27,
+    "chapterCount": 14
+  },
+  {
+    "_id": "HOS",
+    "bookName": "Hosea",
+    "bookOrder": 28,
+    "chapterCount": 14
+  },
+  {
+    "_id": "JOL",
+    "bookName": "Joel",
+    "bookOrder": 29,
+    "chapterCount": 4
+  },
+  {
+    "_id": "AMO",
+    "bookName": "Amos",
+    "bookOrder": 30,
+    "chapterCount": 9
+  },
+  {
+    "_id": "OBA",
+    "bookName": "Obadiah",
+    "bookOrder": 31,
+    "chapterCount": 1
+  },
+  {
+    "_id": "JON",
+    "bookName": "Jonah",
+    "bookOrder": 32,
+    "chapterCount": 4
+  },
+  {
+    "_id": "MIC",
+    "bookName": "Micah",
+    "bookOrder": 33,
+    "chapterCount": 7
+  },
+  {
+    "_id": "NAM",
+    "bookName": "Nahum",
+    "bookOrder": 34,
+    "chapterCount": 3
+  },
+  {
+    "_id": "HAB",
+    "bookName": "Habakkuk",
+    "bookOrder": 35,
+    "chapterCount": 3
+  },
+  {
+    "_id": "ZEP",
+    "bookName": "Zephaniah",
+    "bookOrder": 36,
+    "chapterCount": 3
+  },
+  {
+    "_id": "HAG",
+    "bookName": "Haggai",
+    "bookOrder": 37,
+    "chapterCount": 2
+  },
+  {
+    "_id": "ZEC",
+    "bookName": "Zechariah",
+    "bookOrder": 38,
+    "chapterCount": 14
+  },
+  {
+    "_id": "MAL",
+    "bookName": "Malachi",
+    "bookOrder": 39,
+    "chapterCount": 4
+  },
+  {
+    "_id": "TOB",
+    "bookName": "Tobit",
+    "bookOrder": 40,
+    "chapterCount": 14
+  },
+  {
+    "_id": "JDT",
+    "bookName": "Judith",
+    "bookOrder": 41,
+    "chapterCount": 16
+  },
+  {
+    "_id": "ESG",
+    "bookName": "Esther (Greek)",
+    "bookOrder": 42,
+    "chapterCount": 16
+  },
+  {
+    "_id": "WIS",
+    "bookName": "Wisdom of Solomon",
+    "bookOrder": 43,
+    "chapterCount": 19
+  },
+  {
+    "_id": "SIR",
+    "bookName": "Sirach (Ecclesiasticus)",
+    "bookOrder": 44,
+    "chapterCount": 51
+  },
+  {
+    "_id": "BAR",
+    "bookName": "Baruch",
+    "bookOrder": 45,
+    "chapterCount": 6
+  },
+  {
+    "_id": "LJE",
+    "bookName": "Epistle of Jeremiah",
+    "bookOrder": 46,
+    "chapterCount": 1
+  },
+  {
+    "_id": "S3Y",
+    "bookName": "Song of the Three Holy Children",
+    "bookOrder": 47,
+    "chapterCount": 1
+  },
+  {
+    "_id": "SUS",
+    "bookName": "Susanna",
+    "bookOrder": 48,
+    "chapterCount": 1
+  },
+  {
+    "_id": "BEL",
+    "bookName": "Bel and the Dragon",
+    "bookOrder": 49,
+    "chapterCount": 1
+  },
+  {
+    "_id": "1MA",
+    "bookName": "1 Maccabees",
+    "bookOrder": 50,
+    "chapterCount": 16
+  },
+  {
+    "_id": "2MA",
+    "bookName": "2 Maccabees",
+    "bookOrder": 51,
+    "chapterCount": 15
+  },
+  {
+    "_id": "1ES",
+    "bookName": "1 Esdras",
+    "bookOrder": 52,
+    "chapterCount": 9
+  },
+  {
+    "_id": "MAN",
+    "bookName": "Prayer of Manasseh",
+    "bookOrder": 53,
+    "chapterCount": 1
+  },
+  {
+    "_id": "PS2",
+    "bookName": "Psalm 151",
+    "bookOrder": 54,
+    "chapterCount": 1
+  },
+  {
+    "_id": "3MA",
+    "bookName": "3 Maccabees",
+    "bookOrder": 55,
+    "chapterCount": 7
+  },
+  {
+    "_id": "2ES",
+    "bookName": "2 Esdras",
+    "bookOrder": 56,
+    "chapterCount": 16
+  },
+  {
+    "_id": "4MA",
+    "bookName": "4 Maccabees",
+    "bookOrder": 57,
+    "chapterCount": 18
+  },
+  {
+    "_id": "DAG",
+    "bookName": "Daniel (Greek)",
+    "bookOrder": 58,
+    "chapterCount": 14
+  },
+  {
+    "_id": "MAT",
+    "bookName": "Matthew",
+    "bookOrder": 59,
+    "chapterCount": 28
+  },
+  {
+    "_id": "MRK",
+    "bookName": "Mark",
+    "bookOrder": 60,
+    "chapterCount": 16
+  },
+  {
+    "_id": "LUK",
+    "bookName": "Luke",
+    "bookOrder": 61,
+    "chapterCount": 24
+  },
+  {
+    "_id": "JHN",
+    "bookName": "John",
+    "bookOrder": 62,
+    "chapterCount": 21
+  },
+  {
+    "_id": "ACT",
+    "bookName": "Acts of the Apostles",
+    "bookOrder": 63,
+    "chapterCount": 28
+  },
+  {
+    "_id": "ROM",
+    "bookName": "Romans",
+    "bookOrder": 64,
+    "chapterCount": 16
+  },
+  {
+    "_id": "1CO",
+    "bookName": "1 Corinthians",
+    "bookOrder": 65,
+    "chapterCount": 16
+  },
+  {
+    "_id": "2CO",
+    "bookName": "2 Corinthians",
+    "bookOrder": 66,
+    "chapterCount": 13
+  },
+  {
+    "_id": "GAL",
+    "bookName": "Galatians",
+    "bookOrder": 67,
+    "chapterCount": 6
+  },
+  {
+    "_id": "EPH",
+    "bookName": "Ephesians",
+    "bookOrder": 68,
+    "chapterCount": 6
+  },
+  {
+    "_id": "PHP",
+    "bookName": "Philippians",
+    "bookOrder": 69,
+    "chapterCount": 4
+  },
+  {
+    "_id": "COL",
+    "bookName": "Colossians",
+    "bookOrder": 70,
+    "chapterCount": 4
+  },
+  {
+    "_id": "1TH",
+    "bookName": "1 Thessalonians",
+    "bookOrder": 71,
+    "chapterCount": 5
+  },
+  {
+    "_id": "2TH",
+    "bookName": "2 Thessalonians",
+    "bookOrder": 72,
+    "chapterCount": 3
+  },
+  {
+    "_id": "1TI",
+    "bookName": "1 Timothy",
+    "bookOrder": 73,
+    "chapterCount": 6
+  },
+  {
+    "_id": "2TI",
+    "bookName": "2 Timothy",
+    "bookOrder": 74,
+    "chapterCount": 4
+  },
+  {
+    "_id": "TIT",
+    "bookName": "Titus",
+    "bookOrder": 75,
+    "chapterCount": 3
+  },
+  {
+    "_id": "PHM",
+    "bookName": "Philemon",
+    "bookOrder": 76,
+    "chapterCount": 1
+  },
+  {
+    "_id": "HEB",
+    "bookName": "Hebrews",
+    "bookOrder": 77,
+    "chapterCount": 13
+  },
+  {
+    "_id": "JAS",
+    "bookName": "James",
+    "bookOrder": 78,
+    "chapterCount": 5
+  },
+  {
+    "_id": "1PE",
+    "bookName": "1 Peter",
+    "bookOrder": 79,
+    "chapterCount": 5
+  },
+  {
+    "_id": "2PE",
+    "bookName": "2 Peter",
+    "bookOrder": 80,
+    "chapterCount": 3
+  },
+  {
+    "_id": "1JN",
+    "bookName": "1 John",
+    "bookOrder": 81,
+    "chapterCount": 5
+  },
+  {
+    "_id": "2JN",
+    "bookName": "2 John",
+    "bookOrder": 82,
+    "chapterCount": 1
+  },
+  {
+    "_id": "3JN",
+    "bookName": "3 John",
+    "bookOrder": 83,
+    "chapterCount": 1
+  },
+  {
+    "_id": "JUD",
+    "bookName": "Jude",
+    "bookOrder": 84,
+    "chapterCount": 1
+  },
+  {
+    "_id": "REV",
+    "bookName": "Revelation",
+    "bookOrder": 85,
+    "chapterCount": 22
+  }
+]
