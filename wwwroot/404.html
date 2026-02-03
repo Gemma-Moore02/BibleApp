@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
-    <title>BibleApp</title>
-    <script>
-        // Single Page App GitHub Pages redirect
-        // Stores the current path in a query parameter and redirects to index.html
-        // so Blazor can handle the routing client-side.
-        var pathSegmentsToKeep = 1; // Keep '/BibleApp' segment
+    <script type="text/javascript">
+        // Store the path and redirect to index.html
+        sessionStorage.redirect = location.href;
+        var pathSegmentsToKeep = 1;
         var l = window.location;
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
@@ -19,8 +16,6 @@
         );
     </script>
 </head>
-
 <body>
 </body>
-
 </html>
