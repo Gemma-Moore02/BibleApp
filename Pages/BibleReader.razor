@@ -9,7 +9,39 @@
         Bible Reader
     </MudText>
 
+    @if (isLoading)
+    {
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12">
+                <MudPaper Elevation="0" Class="pa-8" Style="background: transparent; text-align: center;">
+                    <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
+                    <MudText Typo="Typo.h6" Style="color: #8B7355; margin-top: 16px;">
+                        Loading Bible data...
+                    </MudText>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    }
+    else
+    {
     <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" sm="6">
+                        <MudSelect T="string"
+                                   Label="Translation"
+                                   Placeholder="Translation"
+                                   Variant="Variant.Outlined"
+                                   Value="selectedTranslation"
+                                   ValueChanged = "OnTranslationChanged"
+                                   Style="background: #FFFFFF;"
+                                   AdornmentIcon="@Icons.Material.Filled.MenuBook"
+                                   AdornmentColor="Color.Primary"
+                                   >
+                            @foreach(var translation in translations)
+                            {
+                                <MudSelectItem Value ="@translation._id">@translation.translationName</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
         <MudItem xs="12" md="10" lg="8">
             <MudPaper Elevation="3" Class="pa-6" Style="background: #FFFFFF; border-radius: 12px;">
                 <MudGrid Spacing="3">
@@ -74,6 +106,7 @@
             </MudPaper>
         </MudItem>
     </MudGrid>
+    }
 </MudPaper>
 
 @inject HttpClient Http
@@ -89,25 +122,27 @@
     private Book? selectedBook = null;
     private int selectedChapter = 0;
     private int maxChapters = 50; // Default, will be updated based on book selection
-    private string bibleText = string.Empty;   
-
-
+    private string bibleText = string.Empty;
+    private string selectedTranslation = "KJV";
+    private bool isLoading = true;
 
     protected override async Task OnInitializedAsync()
     {
-        // instance of Bible service to get books 
-        reader = new BibleService(Http); 
+        // instance of Bible service to get books
+        reader = new BibleService(Http);
 
-        var BooksTask = reader.GetBooksAsync(); 
-        var TranslationsTask = reader.GetTranslationsAsync(); 
-        
-        await Task.WhenAll(BooksTask, TranslationsTask); 
+        var BooksTask = reader.GetBooksAsync();
+        var TranslationsTask = reader.GetTranslationsAsync();
+        var ChaptersTask = reader.GetAllChaptersAsync();
 
-        books = BooksTask.Result; 
-        translations = TranslationsTask.Result; 
+        await Task.WhenAll(BooksTask, TranslationsTask, ChaptersTask);
+
+        books = BooksTask.Result;
+        translations = TranslationsTask.Result;
+        isLoading = false;
     }       
 
-    private async Task OnBookChanged(Book? newBook)
+    private void OnBookChanged(Book? newBook)
     {
         selectedBook = newBook;
         selectedChapter = 0;
@@ -134,6 +169,17 @@
         }
     }    
 
+    private async Task OnTranslationChanged(string newTranslation)
+    {
+        selectedTranslation = newTranslation; 
+        
+        // keep current Bible text but update to new translation 
+        if(selectedBook is not null && selectedChapter > 0)
+        {
+            await LoadBibleTextAsync(); 
+        }
+    }
+
     private async Task LoadBibleTextAsync()
     {
         if (selectedBook is null || selectedChapter <= 0)
@@ -144,7 +190,7 @@
 
         try
         {
-            var chapter = await reader.GetASVChapterAsync(selectedBook._id, selectedChapter);
+            var chapter = await reader.GetChapterAsync(selectedBook._id, selectedChapter, selectedTranslation);
 
             if (chapter is not null && chapter.verses.Any())
             {
@@ -160,6 +206,16 @@
         {
             bibleText = $"Error loading chapter: {ex.Message}";
         }
+    }
+
+    // TODO: implement clear button 
+    private void Clear()
+    {
+        selectedBook = null; 
+        selectedChapter = 0; 
+        maxChapters = 0; 
+        bibleText = string.Empty; 
+        selectedTranslation = "KJV"; 
     }
 
 }

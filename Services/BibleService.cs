@@ -40,18 +40,18 @@ public class BibleService
     }
 
     /// <summary>
-    /// Gets the ASV translation
+    /// Gets the select translation
     /// </summary>
-    public async Task<Translation?> GetASVTranslationAsync()
+    public async Task<Translation?> GetTranslationAsync(string translationId)
     {
         var translations = await GetTranslationsAsync();
-        return translations.FirstOrDefault(t => t._id == "ASV");
+        return translations.FirstOrDefault(t => t._id == translationId);
     }
 
     /// <summary>
     /// Gets all chapters (loads once and caches)
     /// </summary>
-    private async Task<List<Chapter>> GetAllChaptersAsync()
+    public async Task<List<Chapter>> GetAllChaptersAsync()
     {
         if (_chapters == null)
         {
@@ -61,25 +61,25 @@ public class BibleService
     }
 
     /// <summary>
-    /// Gets a specific chapter for the ASV translation
+    /// Gets a specific chapter for the selected translation
     /// </summary>
     /// <param name="bookId">The book ID (e.g., "GEN", "MAT")</param>
     /// <param name="chapterNumber">The chapter number</param>
-    public async Task<Chapter?> GetASVChapterAsync(string bookId, int chapterNumber)
+    public async Task<Chapter?> GetChapterAsync(string bookId, int chapterNumber, string translationId)
     {
         var chapters = await GetAllChaptersAsync();
-        var chapterId = $"ASV_{bookId}_{chapterNumber:D2}";
+        var chapterId = $"{translationId}_{bookId}_{chapterNumber:D2}";
         return chapters.FirstOrDefault(c => c._id == chapterId);
     }
 
     /// <summary>
-    /// Gets all chapters for a specific book in the ASV translation
+    /// Gets all chapters for a specific book in the selected translation
     /// </summary>
     /// <param name="bookId">The book ID (e.g., "GEN", "MAT")</param>
-    public async Task<List<Chapter>> GetASVBookChaptersAsync(string bookId)
+    public async Task<List<Chapter>> GetBookChaptersAsync(string bookId, string translationId)
     {
         var chapters = await GetAllChaptersAsync();
-        return chapters.Where(c => c._id.StartsWith($"ASV_{bookId}_")).ToList();
+        return chapters.Where(c => c._id.StartsWith($"{translationId}_{bookId}_")).ToList();
     }
 
     /// <summary>
@@ -98,24 +98,24 @@ public class BibleService
     /// <param name="bookId">The book ID (e.g., "GEN", "MAT")</param>
     /// <param name="chapterNumber">The chapter number</param>
     /// <param name="verseNumber">The verse number</param>
-    public async Task<Verse?> GetASVVerseAsync(string bookId, int chapterNumber, int verseNumber)
+    public async Task<Verse?> GetVerseAsync(string bookId, int chapterNumber, int verseNumber, string translationId)
     {
-        var chapter = await GetASVChapterAsync(bookId, chapterNumber);
+        var chapter = await GetChapterAsync(bookId, chapterNumber, translationId);
         return chapter?.verses.FirstOrDefault(v => v.verseNo == verseNumber);
     }
 
     /// <summary>
-    /// Searches for verses containing specific text in the ASV translation
+    /// Searches for verses containing specific text in the selected translation
     /// </summary>
     /// <param name="searchText">The text to search for</param>
-    public async Task<List<(Chapter chapter, Verse verse)>> SearchASVAsync(string searchText)
+    public async Task<List<(Chapter chapter, Verse verse)>> SearchAsync(string searchText, string translationId)
     {
         var chapters = await GetAllChaptersAsync();
-        var asvChapters = chapters.Where(c => c._id.StartsWith("ASV_")).ToList();
+        var translationChapters = chapters.Where(c => c._id.StartsWith($"{translationId}_")).ToList();
 
         var results = new List<(Chapter chapter, Verse verse)>();
 
-        foreach (var chapter in asvChapters)
+        foreach (var chapter in translationChapters)
         {
             var matchingVerses = chapter.verses
                 .Where(v => v.verseText.Contains(searchText, StringComparison.OrdinalIgnoreCase));
